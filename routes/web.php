@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserAccountController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +15,21 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
+Route::get('/', [AuthController::class, 'showLoginForm'])->name('loginn');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/register', [UserAccountController::class, 'showRegistrationForm'])->name('register');
 
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
-    Route::post('/login', [AuthController::class, 'login'])->name('login');
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::get('/register', function () {
+        return view('register');
+    })->name('register');
+    Route::get('/show-user-accounts', [UserAccountController::class, 'showUserAccounts'])->name('showUserAccounts');
 });
+
+Route::post('/create-user-account', [UserAccountController::class, 'createUserAccount'])->name('createUserAccount');
+Route::delete('/userAccounts/{nik}', [UserAccountController::class, 'deleteAccount'])->name('deleted');

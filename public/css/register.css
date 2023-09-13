@@ -1,0 +1,50 @@
+.container-login {
+    margin-top: 50px;
+  }
+  
+  .card {
+    border-radius: 10px;
+  }
+  
+  .login-form {
+    padding: 20px;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Message Style */
+  .alert {
+    margin-top: 20px;
+  }
+  
+  /* Modal Style */
+  .modal-content {
+    border-radius: 10px;
+  }
+  
+  /* Error Text */
+  span[id$="-error"] {
+    font-size: 12px;
+  }
+  

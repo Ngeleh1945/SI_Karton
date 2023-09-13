@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class HomeController extends Controller
 {
-
     /**
      * Create a new controller instance.
      *
@@ -17,11 +16,13 @@ class DashboardController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function index()
     {
-        // Di sini Anda dapat menambahkan logika untuk halaman dashboard
-        // Contoh: mengambil data dari database dan mengirimkannya ke tampilan
-
-        return view('dashboard');
+        return view('home');
     }
 }
